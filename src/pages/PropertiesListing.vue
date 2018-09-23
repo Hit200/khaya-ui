@@ -21,7 +21,44 @@
       </div>
     </div>
 
-    <h1>Hit 200 Here we come</h1>
+    <!-- The properties list -->
+    <div class="flex flex-wrap container mx-auto mt-6">
+      <!-- The Property wrapper -->
+      <div class="w-1/4 p-2 mb-4" v-for="i in 10" :key="i">
+        <!-- The Property -->
+        <div class="w-full rounded-t overflow-hidden">
+          <!-- The image for the Property -->
+          <div class="w-full h-32 bg-purple">&nbsp;</div>
+
+          <!-- The profile pic and the price -->
+          <div class="flex justify-between -mt-8">
+            <div class="w-16 h-16 flex items-center justify-center bg-grey border-4 border-white rounded-full ml-4">
+              <svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 5a5 5 0 0 1 10 0v2A5 5 0 0 1 5 7V5zM0 16.68A19.9 19.9 0 0 1 10 14c3.64 0 7.06.97 10 2.68V20H0v-3.32z"/></svg>
+            </div>
+            <span class="self-end mb-1 font-medium">$80/month</span>
+          </div>
+          
+          <!-- The description items -->
+          <div class="mt-2">
+            <a href="#" class="no-underline text-current-color hover:text-black text-lg mb-2 font-bold">47 Castens, Belveder, Harare</a>
+            <div class="mb-2">
+              <span>Shared Room - 3 Beds</span>
+            </div>
+
+            <div class="flex w-full items-center justify-between mb-2">
+              <span class="inline-flex items-center">
+                <svg class="h-4 mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 3.22l-.61-.6a5.5 5.5 0 0 0-7.78 7.77L10 18.78l8.39-8.4a5.5 5.5 0 0 0-7.78-7.77l-.61.61z"/></svg>
+                12k
+              </span>
+
+              <span class="inline-flex items-center">
+                <svg v-for="i in 4" :key="i" fill="currentColor" class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
