@@ -36,7 +36,5 @@ export default {
 </script>
 
 <style scoped>
-  .container-strip {
-    max-width: 450px;
-  }
+
 </style>
