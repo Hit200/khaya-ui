@@ -7,6 +7,7 @@
       </div>
 
       <nav class="py-2">
+        <router-link to="/" class="no-underline font-medium text-grey-darkest mr-4">Explore houses</router-link>
         <a href="#" class="no-underline font-medium text-grey-darkest mr-4">Rent Out Your House</a>
         <a href="#" class="no-underline font-medium text-grey-darkest mr-4">Create Account</a>
         <router-link to="/login" class="no-underline font-medium text-white py-2 px-4 rounded bg-purple">Login</router-link>
