@@ -80,6 +80,13 @@
     </div>
 
 
+    <!-- Location area for directions -->
+    <div class="container mx-auto mt-6">
+      <h3 class="mb-4">Location</h3>
+      <!-- Map area -->
+      <div class="bg-purple-lighter w-full h-64 rounded"></div>
+    </div>
+
     <!-- The fixed footer -->
     <footer class="fixed pin-b w-full p-4 bg-white border-t">
       <div class="flex items-center justify-between container mx-auto">
