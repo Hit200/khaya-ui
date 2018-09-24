@@ -5,20 +5,20 @@
 
     <!-- Secondary Navigation Bar, with filters -->
     <div class="border-b">
-      <div class="flex items-center justify-between container mx-auto">
+      <div class="flex items-center justify-between flex-col md:flex-row container mx-auto">
         <div class="py-2">
           <input type="checkbox" name="" id="">
           <span>Show Map</span>
         </div>
 
-        <div class="inline-flex items-center py-2">
-          <span class="mr-4 inline-flex items-center font-bold">
+        <div class="inline-flex items-center flex-col md:flex-row py-2 w-full md:w-auto">
+          <span class="mb-2 md:mb-0 mr-4 inline-flex items-center font-bold">
             <svg class="h-4 mr-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12 12l8-8V0H0v4l8 8v8l4-4v-4z"/></svg>
             Filters
           </span>
-          <button class="py-2 px-4 bg-white rounded border hover:bg-grey-lighter mr-2">Distance from HIT</button>
-          <button class="py-2 px-4 bg-white rounded border hover:bg-grey-lighter mr-2">Price</button>
-          <button class="py-2 px-4 bg-white rounded border hover:bg-grey-lighter">Number of occupants</button>
+          <button class="w-4/5 md:w-auto mb-2 mb:mb-0 py-2 px-4 bg-white rounded border hover:bg-grey-lighter md:mr-2">Distance from HIT</button>
+          <button class="w-4/5 md:w-auto mb-2 mb:mb-0 py-2 px-4 bg-white rounded border hover:bg-grey-lighter md:mr-2">Price</button>
+          <button class="w-4/5 md:w-auto mb-2 mb:mb-0 py-2 px-4 bg-white rounded border hover:bg-grey-lighter">Number of occupants</button>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
     <!-- The properties list -->
     <div class="flex flex-wrap container mx-auto mt-6">
       <!-- The Property wrapper -->
-      <div class="w-1/4 p-2 mb-4" v-for="i in 10" :key="i">
+      <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 mb-4" v-for="i in 10" :key="i">
         <!-- The Property -->
         <div class="w-full rounded-t overflow-hidden">
           <!-- The image for the Property -->
