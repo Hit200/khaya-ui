@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="pb-24">
     <!-- Primary Navigation bar -->
     <AppNavigationBar/>
 
-    <div class="container mx-auto flex justify-between mt-6">
+    <div class="container mx-auto flex justify-between mt-6 mb-10">
       <!-- Property descrition and details -->
       <div class="w-1/2-almost h-64 bg-white rouded p-8">
         <h3 class="mb-4">47 Castens, Belvedere Harare</h3>
@@ -47,6 +47,40 @@
         </div>
       </div>
     </div>
+
+    <!-- Reviews and Features -->
+    <div class="container mx-auto flex justify-between mt-6">
+      <!-- Reviews -->
+      <div class="w-1/2-almost">
+        <h3 class="mb-4">Reviews</h3>
+
+        <div class="flex">
+          <div class="h-6 w-6 bg-purple rounded-full flex-no-shrink mr-2">&nbsp;</div>
+          <div>
+            <div class="flex items-baseline justify-between mb-4">
+              <span>Kudakwashe Paradzayi</span>
+              <span>4 days ago</span>
+            </div>
+            <p class="mb-4">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error libero obcaecati ipsa eveniet et modi quis assumenda vitae totam praesentium repellat adipisci, esse quidem veniam asperiores quae. Tempora, voluptatum similique?
+            </p>
+
+            <button class="py-2 px-4 border-b-2 border-purple">Read more reviews</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-1/2-almost">
+        <h3 class="mb-4">Features</h3>
+        <div class="flex items-center justify-between flex-wrap">
+          <div v-for="i in 6" class="w-1/2 mb-2">
+            <svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM6.7 9.29L9 11.6l4.3-4.3 1.4 1.42L9 14.4l-3.7-3.7 1.4-1.42z"/></svg>
+            Wifi
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <!-- The fixed footer -->
     <footer class="fixed pin-b w-full p-4 bg-white border-t">
