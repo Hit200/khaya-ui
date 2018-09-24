@@ -47,6 +47,27 @@
         </div>
       </div>
     </div>
+
+    <!-- The fixed footer -->
+    <footer class="fixed pin-b w-full p-4 bg-white border-t">
+      <div class="flex items-center justify-between container mx-auto">
+        <div>
+          <h3 class="mb-4">47 Castens, Belvedere Harare</h3>
+
+          <!-- Popularity -->
+          <span class="inline-flex items-center">
+            <svg v-for="i in 4" :key="i" fill="currentColor" class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+            <span class="ml-2">200 reviews</span>
+          </span>
+
+        </div>
+
+        <div class="inline-flex items-center">
+          <span class="font-medium mr-4">$80/month</span>
+          <button class="bg-purple text-white py-4 px-6 rounded">Rent this place</button>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
