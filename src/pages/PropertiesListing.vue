@@ -42,7 +42,7 @@
           
           <!-- The description items -->
           <div class="mt-2">
-            <a href="#" class="no-underline text-current-color hover:text-black text-lg mb-2 font-bold">47 Castens, Belveder, Harare</a>
+            <router-link :to="`/${i}`" class="no-underline text-current-color hover:text-black text-lg mb-2 font-bold">47 Castens, Belveder, Harare</router-link>
             <div class="mb-2">
               <span>Shared Room - 3 Beds</span>
             </div>
