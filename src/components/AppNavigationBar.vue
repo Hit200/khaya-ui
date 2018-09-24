@@ -6,10 +6,10 @@
         <input type="text" class="py-2 px-4 border-2 border-grey-light rounded w-64" placeholder="Search: eg Belvedere, Harare">
       </div>
 
-      <nav class="py-2">
-        <router-link to="/" class="no-underline font-medium text-grey-darkest mr-4">Explore houses</router-link>
-        <a href="#" class="no-underline font-medium text-grey-darkest mr-4">Rent Out Your House</a>
-        <a href="#" class="no-underline font-medium text-grey-darkest mr-4">Create Account</a>
+      <nav>
+        <router-link to="/" class="py-4 border-b-2 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-4">Explore houses</router-link>
+        <a href="#" class="py-4 border-b-2 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-4">Rent Out Your House</a>
+        <a href="#" class="py-4 border-b-2 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-4">Create Account</a>
         <router-link to="/login" class="no-underline font-medium text-white py-2 px-4 rounded bg-purple">Login</router-link>
       </nav>
     </div>
