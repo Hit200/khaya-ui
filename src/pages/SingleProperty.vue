@@ -103,7 +103,7 @@
 
         <div class="inline-flex items-center">
           <span class="font-medium mr-4">$80/month</span>
-          <button class="bg-purple text-white py-4 px-6 rounded">Rent this place</button>
+          <router-link class="no-underline bg-purple text-white py-4 px-6 rounded" :to="`/${$route.params.id}/checkout`">Rent this place</router-link>
         </div>
       </div>
     </footer>
