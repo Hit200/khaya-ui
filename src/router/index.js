@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import PropertiesListing from '@/pages/PropertiesListing'
 import Login from '@/pages/Login'
 import SingleProperty from '@/pages/SingleProperty'
+import Checkout from '@/pages/Checkout'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/:id',
       name: 'SingleProperty',
       component: SingleProperty
+    },
+    {
+      path: '/:id/checkout',
+      name: 'Checkout',
+      component: Checkout
     }
   ]
 })
