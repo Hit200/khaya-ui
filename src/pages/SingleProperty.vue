@@ -1,17 +1,17 @@
 <template>
-  <div class="pb-24">
+  <div class="pb-32">
     <!-- Primary Navigation bar -->
     <AppNavigationBar/>
 
-    <div class="container mx-auto flex justify-between mt-6 mb-10">
+    <div class="container mx-auto flex justify-between flex-wrap sm:mt-6 mb-10">
       <!-- Property descrition and details -->
-      <div class="w-1/2-almost h-64 bg-white rouded p-8">
+      <div class="w-full sm:w-1/2-almost bg-white sm:rouded p-8">
         <h3 class="mb-4">47 Castens, Belvedere Harare</h3>
 
         <!-- Popularity -->
         <span class="inline-flex items-center mb-4">
           <svg v-for="i in 4" :key="i" fill="currentColor" class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-          200 reviews
+          <span class="ml-2">200 reviews</span>
         </span>
 
         <!-- Description -->
@@ -21,16 +21,16 @@
 
         <!-- Recommenders -->
         <div class="flex items-center">
-          <div class="inline-block h-8 w-8 bg-purple border-2 border-white rounded-full" :class="{'-ml-4': i > 1}" v-for="i in 4" :key="i">&nbsp;</div>
+          <div class="inline-block flex-no-shrink h-10 w-10 bg-purple border-2 border-white rounded-full" :class="{'-ml-4': i > 1}" v-for="i in 4" :key="i">&nbsp;</div>
           <span class="ml-4">Recommended by <strong>145</strong> people.</span>
         </div>
       </div>
 
       <!-- Property images -->
-      <div class="relative w-1/2-almost h-64 rounded bg-purple-lighter">
+      <div class="relative w-full sm:w-1/2-almost h-64 sm:rounded bg-purple-lighter">
         <div class="flex items-center justify-between px-4 h-24 w-full absolute pin-b -mb-12">
           <div>
-            <button class="inline-flex items-center bg-white rounded py-2 px-4 hover:bg-grey-lighter border mr-2">
+            <button class="inline-flex items-center bg-white rounded py-2 px-4 hover:bg-grey-lighter border mr-2 mb-2">
            <svg class="h-4 mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 3.22l-.61-.6a5.5 5.5 0 0 0-7.78 7.77L10 18.78l8.39-8.4a5.5 5.5 0 0 0-7.78-7.77l-.61.61z"/></svg>
             12k
           </button>
@@ -39,7 +39,7 @@
             See pictures
           </button>
           </div>
-          <div class="w-24 h-24 flex items-center justify-center bg-grey border-4 border-grey-lightest rounded-full">
+          <div class="w-24 h-24 flex-no-shrink flex items-center justify-center bg-grey border-4 border-grey-lightest rounded-full">
             <svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 5a5 5 0 0 1 10 0v2A5 5 0 0 1 5 7V5zM0 16.68A19.9 19.9 0 0 1 10 14c3.64 0 7.06.97 10 2.68V20H0v-3.32z"/></svg>
           </div>
         </div>
@@ -47,8 +47,8 @@
     </div>
 
     <!-- Reviews and Features -->
-    <div class="container mx-auto flex justify-between mt-6">
-      <div class="w-1/2-almost">
+    <div class="container mx-auto flex justify-between flex-wrap mt-6">
+      <div class="w-full sm:w-1/2-almost p-8 sm:p-0">
         <h3 class="mb-4">Features</h3>
         <div class="flex items-center justify-between flex-wrap">
           <div v-for="i in 6" class="w-1/2 mb-4" :key="i">
@@ -58,11 +58,11 @@
         </div>
       </div>
       <!-- Reviews -->
-      <div class="w-1/2-almost">
+      <div class="w-full sm:w-1/2-almost p-8 sm:p-0">
         <h3 class="mb-4">Reviews</h3>
 
         <div class="flex">
-          <div class="h-6 w-6 bg-purple rounded-full flex-no-shrink mr-2">&nbsp;</div>
+          <div class="h-10 w-10 bg-purple rounded-full flex-no-shrink mr-2">&nbsp;</div>
           <div>
             <div class="flex items-baseline justify-between mb-4 font-medium text-grey-dark">
               <span>Kudakwashe Paradzayi</span>
@@ -81,7 +81,7 @@
 
 
     <!-- Location area for directions -->
-    <div class="container mx-auto mt-6">
+    <div class="container mx-auto mt-6 p-8 sm:p-0">
       <h3 class="mb-4">Location</h3>
       <!-- Map area -->
       <div class="bg-purple-lighter w-full h-64 rounded"></div>
@@ -89,9 +89,9 @@
 
     <!-- The fixed footer -->
     <footer class="fixed pin-b w-full p-4 bg-white border-t">
-      <div class="flex items-center justify-between container mx-auto">
-        <div>
-          <h3 class="mb-4">47 Castens, Belvedere Harare</h3>
+      <div class="flex items-center justify-between flex-wrap sm:flex-no-wrap container mx-auto">
+        <div class="flex-1 mb-2 sm:mb-4">
+          <h3 class="mb-2 sm:mb-4 text-sm sm:text-lg">47 Castens, Belvedere Harare</h3>
 
           <!-- Popularity -->
           <span class="inline-flex items-center">
@@ -101,9 +101,9 @@
 
         </div>
 
-        <div class="inline-flex items-center">
-          <span class="font-medium mr-4">$80/month</span>
-          <router-link class="no-underline bg-purple text-white py-4 px-6 rounded" :to="`/${$route.params.id}/checkout`">Rent this place</router-link>
+        <div class="inline-flex items-center flex-wrap w-full sm:w-auto">
+          <span class="font-medium mr-4 mb-2 sm: mb-0">$80/month</span>
+          <router-link class="no-underline bg-purple text-white text-center py-4 px-6 rounded w-full sm:w-auto" :to="`/${$route.params.id}/checkout`">Rent this place</router-link>
         </div>
       </div>
     </footer>
