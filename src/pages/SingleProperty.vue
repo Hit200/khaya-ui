@@ -27,7 +27,7 @@
       </div>
 
       <!-- Property images -->
-      <div class="relative w-full sm:w-1/2-almost h-64 sm:rounded bg-purple-lighter">
+      <div class="relative w-full sm:w-1/2-almost h-64 sm:rounded bg-purple-lighter bg-size-cover" style="background-image: url(/static/sample-house.jpeg)">
         <div class="flex items-center justify-between px-4 h-24 w-full absolute pin-b -mb-12">
           <div>
             <button class="inline-flex items-center bg-white rounded py-2 px-4 hover:bg-grey-lighter border mr-2 mb-2">

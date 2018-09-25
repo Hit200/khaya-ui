@@ -30,7 +30,10 @@
         <!-- The Property -->
         <div class="w-full rounded-t overflow-hidden">
           <!-- The image for the Property -->
-          <div class="w-full h-32 bg-purple">&nbsp;</div>
+          <div class="w-full h-32 bg-purple overflow-hidden">
+            <img class="w-full" src="/static/sample-house.jpeg" alt="">
+            <!-- Do a lil morre research on how to make the imimages scale properly - consider using object-fit -->
+          </div>
 
           <!-- The profile pic and the price -->
           <div class="flex justify-between -mt-8">
