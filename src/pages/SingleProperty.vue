@@ -21,7 +21,9 @@
 
         <!-- Recommenders -->
         <div class="flex items-center">
-          <div class="inline-block flex-no-shrink h-10 w-10 bg-purple border-2 border-white rounded-full" :class="{'-ml-4': i > 1}" v-for="i in 4" :key="i">&nbsp;</div>
+          <div class="inline-block flex-no-shrink h-10 w-10 bg-purple border-2 border-white rounded-full overflow-hidden" :class="{'-ml-4': i > 1}" v-for="i in 4" :key="i">
+              <img class="w-full h-full" src="/static/sample-avatar.png" alt="">
+          </div>
           <span class="ml-4">Recommended by <strong>145</strong> people.</span>
         </div>
       </div>
@@ -39,8 +41,8 @@
             See pictures
           </button>
           </div>
-          <div class="w-24 h-24 flex-no-shrink flex items-center justify-center bg-grey border-4 border-grey-lightest rounded-full">
-            <svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 5a5 5 0 0 1 10 0v2A5 5 0 0 1 5 7V5zM0 16.68A19.9 19.9 0 0 1 10 14c3.64 0 7.06.97 10 2.68V20H0v-3.32z"/></svg>
+          <div class="w-24 h-24 flex-no-shrink flex items-center justify-center bg-grey border-4 border-grey-lightest rounded-full overflow-hidden">
+            <img class="w-full h-full" src="/static/sample-avatar.png" alt="">
           </div>
         </div>
       </div>
@@ -62,7 +64,9 @@
         <h3 class="mb-4">Reviews</h3>
 
         <div class="flex">
-          <div class="h-10 w-10 bg-purple rounded-full flex-no-shrink mr-2">&nbsp;</div>
+          <div class="h-10 w-10 bg-purple rounded-full flex-no-shrink overflow-hidden mr-2">
+              <img class="w-full h-full" src="/static/sample-avatar.png" alt="">
+          </div>
           <div>
             <div class="flex items-baseline justify-between mb-4 font-medium text-grey-dark">
               <span>Kudakwashe Paradzayi</span>
