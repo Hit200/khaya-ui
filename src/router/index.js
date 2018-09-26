@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import PropertiesListing from '@/pages/PropertiesListing'
+import CreateNewHouse from '@/pages/CreateNewHouse'
 import Login from '@/pages/Login'
 import SingleProperty from '@/pages/SingleProperty'
 import Checkout from '@/pages/Checkout'
@@ -19,6 +20,11 @@ export default new Router({
       path: '/',
       name: 'PropertiesListing',
       component: PropertiesListing
+    },
+    {
+      path: '/new',
+      name: 'CreateNewHouse',
+      component: CreateNewHouse
     },
     {
       path: '/:id',
