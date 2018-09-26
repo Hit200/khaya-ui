@@ -7,8 +7,19 @@
       </div>
 
       <nav class="hidden sm:block p-4 lg:p-0">
-        <router-link to="/" class="py-4 border-b-2 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-2 lg:px-4">Explore houses</router-link>
-        <router-link to="/new" class="py-4 border-b-2 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-2 lg:px-4">Rent Out Your House</router-link>
+        <router-link
+          to="/"
+          class="py-4 border-b-2 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-2 lg:px-4"
+          :class="{'border-purple': $route.name === 'PropertiesListing'}">
+          Explore houses
+        </router-link>
+        <router-link
+          to="/new"
+          class="py-4 border-b-2 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-2 lg:px-4"
+          :class="{'border-purple': $route.name === 'CreateNewHouse'}"
+          >
+          Rent Out Your House
+        </router-link>
         <a href="#" class="py-4 border-b-2 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-2 lg:px-4">Create Account</a>
         <router-link to="/login" class="no-underline font-medium text-white py-2 px-4 rounded bg-purple">Login</router-link>
       </nav>
