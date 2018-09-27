@@ -23,6 +23,8 @@
     </div>
 
     <!-- The properties list -->
+    <AppMap :show="isShowingMap"/>
+
     <div class="flex flex-wrap container mx-auto mt-6">
       <!-- The Property wrapper -->
       <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 mb-4" v-for="i in 10" :key="i">
@@ -69,11 +71,13 @@
 <script>
 import AppNavigationBar from '@/components/AppNavigationBar'
 import AppToggle from '@/components/AppToggle'
+import AppMap from '@/components/AppMap'
 export default {
   name: 'HelloWorld',
   components: {
     AppNavigationBar,
-    AppToggle
+    AppToggle,
+    AppMap
   },
   data () {
     return {
