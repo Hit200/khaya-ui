@@ -7,8 +7,7 @@
     <div class="border-b">
       <div class="flex items-center justify-between flex-col md:flex-row container mx-auto">
         <div class="py-2">
-          <input type="checkbox" name="" id="">
-          <span>Show Map</span>
+          <AppToggle v-model="isShowingMap" onText="Hide Map" offText="Show Map"/>
         </div>
 
         <div class="inline-flex items-center flex-col md:flex-row py-2 w-full md:w-auto">
@@ -63,16 +62,23 @@
           </div>
         </div>
       </div>
-    </div>
+   </div>
   </div>
 </template>
 
 <script>
 import AppNavigationBar from '@/components/AppNavigationBar'
+import AppToggle from '@/components/AppToggle'
 export default {
   name: 'HelloWorld',
   components: {
-    AppNavigationBar
+    AppNavigationBar,
+    AppToggle
+  },
+  data () {
+    return {
+      isShowingMap: true
+    }
   }
 }
 </script>
