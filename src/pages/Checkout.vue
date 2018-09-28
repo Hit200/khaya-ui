@@ -47,7 +47,7 @@
         <button onclick="alert('At this point the app redirects to paynow')" class="block w-full bg-purple text-white p-4 text-center rounded font-medium">Proceed to Paynow</button>
       </div>
 
-      <div class="bg-white rounded border">
+      <div class="bg-white rounded border mb-4">
         <button @click="$router.push('/')" class="block w-full text-orange hover:bg-orange-lightest p-4 text-center rounded font-medium">Cancel order</button>
       </div>      
     </div>
