@@ -17,6 +17,12 @@
         </span>
       </div>
 
+      <!-- The checkin date -->
+      <div class="flex items-center justify-between bg-white p-6 rounded mb-4 border">
+        <label for="" class="font-bold">Check In Date</label>
+        <input type="date" class="py-2 px-4 border rounded">
+      </div>
+
       <!-- Amount payable -->
       <div class="bg-white p-6 rounded mb-4 border">
         <div class="flex items-baseline justify-between mb-4">
