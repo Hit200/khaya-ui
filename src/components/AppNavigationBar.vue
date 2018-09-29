@@ -3,7 +3,10 @@
     <div class="flex items-center justify-between sm:flex-wrap container mx-auto px-4 sm:px-0">
       <div class="w-full lg:w-auto py-2 inline-flex items-center">
         <div class="h-8 w-8 bg-grey rounded-full mr-4 flex-no-shrink">&nbsp;</div>
-        <input type="text" class="py-2 px-4 border-2 border-grey-light rounded lg:w-64 flex-1" placeholder="Search: eg Belvedere, Harare">
+        <div class="flex items-center py-2 px-4 border-2 border-grey-light rounded lg:w-64 flex-1 rounded-full">
+          <svg class="h-4 mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/></svg>
+          <input type="text" class="flex-1 outline-none h-full" placeholder="Search: eg Belvedere, Harare">
+        </div>
       </div>
 
       <nav class="hidden sm:block p-4 lg:p-0">
