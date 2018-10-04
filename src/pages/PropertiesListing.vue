@@ -38,7 +38,7 @@
 
           <!-- The profile pic and the price -->
           <div class="flex justify-between -mt-8">
-            <div class="w-16 h-16 flex items-center justify-center bg-grey border-4 border-grey-lightest rounded-full overflow-hidden ml-4">
+            <div class="w-16 h-16 flex items-center justify-center bg-grey border-4 border-grey-lighter rounded-full overflow-hidden ml-4">
               <img class="w-full h-full" src="/static/sample-avatar.png" alt="">
             </div>
             <span class="self-end mb-1 font-medium">$80/month</span>
