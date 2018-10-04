@@ -31,7 +31,7 @@
         </div>
 
         <div class="flex items-baseline justify-between mb-4">
-          <span>Finder's fee</span>
+          <span>Utilities (Wifi, ZESA, etc)</span>
           <span class="font-medium">$5</span>
         </div>
 
