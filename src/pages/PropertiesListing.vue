@@ -15,7 +15,7 @@
             <svg class="h-4 mr-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12 12l8-8V0H0v4l8 8v8l4-4v-4z"/></svg>
             Filters
           </span>
-          <button class="w-4/5 md:w-auto mb-2 md:mb-0 py-2 px-4 bg-white rounded border hover:bg-grey-lighter md:mr-2">Distance from HIT</button>
+          <button class="w-4/5 md:w-auto mb-2 md:mb-0 py-2 px-4 bg-white rounded border hover:bg-grey-lighter md:mr-2">Distance from campus</button>
           <button class="w-4/5 md:w-auto mb-2 md:mb-0 py-2 px-4 bg-white rounded border hover:bg-grey-lighter md:mr-2">Price</button>
           <button class="w-4/5 md:w-auto mb-2 md:mb-0 py-2 px-4 bg-white rounded border hover:bg-grey-lighter">Number of occupants</button>
         </div>
@@ -27,7 +27,7 @@
 
     <div class="flex flex-wrap container mx-auto mt-6">
       <!-- The Property wrapper -->
-      <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 mb-4" v-for="i in 10" :key="i">
+      <div class="w-full sm:w-1/2 md:w-1/3 llg:w-1/4 p-2 mb-4" v-for="i in 10" :key="i">
         <!-- The Property -->
         <div class="w-full rounded-t overflow-hidden">
           <!-- The image for the Property -->
@@ -41,14 +41,14 @@
             <div class="w-16 h-16 flex items-center justify-center bg-grey border-4 border-grey-lighter rounded-full overflow-hidden ml-4">
               <img class="w-full h-full" src="/static/sample-avatar.png" alt="">
             </div>
-            <span class="self-end mb-1 font-medium">$80/month</span>
+            <span class="self-end mb-1 font-medium">$80 - $120/month</span>
           </div>
           
           <!-- The description items -->
           <div class="mt-2">
             <router-link :to="`/${i}`" class="no-underline text-current-color hover:text-black text-lg mb-2 font-bold">47 Castens, Belveder, Harare</router-link>
             <div class="mb-2">
-              <span>Shared Room - 3 Beds</span>
+              <span>Shared - 9 rooms</span>
             </div>
 
             <div class="flex w-full items-center justify-between mb-2">
