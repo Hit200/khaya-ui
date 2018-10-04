@@ -53,9 +53,9 @@
       <div class="w-full sm:w-1/2-almost p-8 sm:p-0">
         <h3 class="mb-4">Features</h3>
         <div class="flex items-center justify-between flex-wrap">
-          <div v-for="i in 6" class="w-1/2 mb-4" :key="i">
+          <div v-for="i in ['Wifi', 'Gas Stove', 'TV & Entertainment', 'Spacious yard', 'Swimming Pool', 'Tennis Court']" class="w-1/2 mb-4" :key="i">
             <svg class="h-4 text-purple" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM6.7 9.29L9 11.6l4.3-4.3 1.4 1.42L9 14.4l-3.7-3.7 1.4-1.42z"/></svg>
-            Wifi
+            {{ i }}
           </div>
         </div>
       </div>
