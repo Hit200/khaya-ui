@@ -27,7 +27,7 @@
 
     <div class="flex flex-wrap container mx-auto mt-6">
       <!-- The Property wrapper -->
-      <div class="w-full sm:w-1/2 md:w-1/3 llg:w-1/4 p-2 mb-4" v-for="i in 10" :key="i">
+      <div class="w-full sm:w-1/2 md:w-1/3 p-2 mb-4" v-for="i in 10" :key="i">
         <!-- The Property -->
         <div class="w-full rounded-t overflow-hidden">
           <!-- The image for the Property -->
@@ -48,7 +48,7 @@
           <div class="mt-2">
             <router-link :to="`/${i}`" class="no-underline text-current-color hover:text-black text-lg mb-2 font-bold">47 Castens, Belveder, Harare</router-link>
             <div class="mb-2">
-              <span>Shared - 9 rooms</span>
+              <span>Shared &middot; 9 rooms</span>
             </div>
 
             <div class="flex w-full items-center justify-between mb-2">
