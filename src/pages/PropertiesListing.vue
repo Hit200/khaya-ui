@@ -15,9 +15,12 @@
             <svg class="h-4 mr-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12 12l8-8V0H0v4l8 8v8l4-4v-4z"/></svg>
             Filters
           </span>
-          <button class="w-4/5 md:w-auto mb-2 md:mb-0 py-2 px-4 bg-white rounded border hover:bg-grey-lighter md:mr-2">Distance from campus</button>
-          <button class="w-4/5 md:w-auto mb-2 md:mb-0 py-2 px-4 bg-white rounded border hover:bg-grey-lighter md:mr-2">Price</button>
-          <button class="w-4/5 md:w-auto mb-2 md:mb-0 py-2 px-4 bg-white rounded border hover:bg-grey-lighter">Number of occupants</button>
+          <button class="flex justify-between border-purple w-4/5 md:w-64 mb-2 md:mb-0 py-2 pt-4 px-4 bg-whitel rounded border hover:bg-grey-lighter md:mr-2 relative">
+            <span class="text-sm  pin-t -mt-2 absolute rounded-full px-4 border-b border-purple bg-grey-lighter">Distance from campus</span>
+            <span class="text-purple">798 meters</span> <span>X</span>
+          </button>
+          <button class="w-4/5 md:w-64 mb-2 md:mb-0 py-2 px-4 bg-white rounded border hover:bg-grey-lighter md:mr-2">Price</button>
+          <button class="w-4/5 md:w-64 mb-2 md:mb-0 py-2 px-4 bg-white rounded border hover:bg-grey-lighter">Number of occupants</button>
         </div>
       </div>
     </div>
