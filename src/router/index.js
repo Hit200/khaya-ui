@@ -1,40 +1,59 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import PropertiesListing from '@/pages/PropertiesListing'
-import CreateNewHouse from '@/pages/CreateNewHouse'
-import Login from '@/pages/Login'
-import SingleProperty from '@/pages/SingleProperty'
-import Checkout from '@/pages/Checkout'
+import Vue from "vue";
+import Router from "vue-router";
+import PropertiesListing from "@/pages/PropertiesListing";
+import Index from "@/pages/Index";
+import CreateNewHouse from "@/pages/CreateNewHouse";
+import Login from "@/pages/Login";
+import SingleProperty from "@/pages/SingleProperty";
+import Checkout from "@/pages/Checkout";
+import store from "../store";
 
-Vue.use(Router)
+Vue.use(Router);
+
+function useAuth(from, to, next) {
+  if (store.state.currentUser) {
+    next();
+  } else {
+    next("/login");
+  }
+}
 
 export default new Router({
-  mode: 'history',
+  mode: "history",
   routes: [
     {
-      path: '/login',
-      name: 'Login',
+      path: "/login",
+      name: "Login",
       component: Login
     },
     {
-      path: '/',
-      name: 'PropertiesListing',
-      component: PropertiesListing
+      path: "/",
+      name: "Index",
+      component: Index
     },
     {
-      path: '/new',
-      name: 'CreateNewHouse',
-      component: CreateNewHouse
+      path: "/homes",
+      name: "PropertiesListing",
+      component: PropertiesListing,
+      beforeEnter: useAuth
     },
     {
-      path: '/:id',
-      name: 'SingleProperty',
-      component: SingleProperty
+      path: "/new",
+      name: "CreateNewHouse",
+      component: CreateNewHouse,
+      beforeEnter: useAuth
     },
     {
-      path: '/:id/checkout',
-      name: 'Checkout',
-      component: Checkout
+      path: "/:id",
+      name: "SingleProperty",
+      component: SingleProperty,
+      beforeEnter: useAuth
+    },
+    {
+      path: "/:id/checkout",
+      name: "Checkout",
+      component: Checkout,
+      beforeEnter: useAuth
     }
   ]
-})
+});

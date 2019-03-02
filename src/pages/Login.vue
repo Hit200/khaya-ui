@@ -56,8 +56,8 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
-      username: "",
-      password: "",
+      username: "kudakwashe",
+      password: "1234567890",
       isLoading: false,
       errorMessage: ""
     };
@@ -71,7 +71,7 @@ export default {
       const { username, password } = this.$data;
       this.login({ username, password })
         .then(() => {
-          this.$router.push("/");
+          this.$router.push("/homes");
         })
         .catch(err => {
           this.errorMessage = err.message;

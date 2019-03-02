@@ -1,26 +1,58 @@
-import Vuex from 'vuex'
-import Vue from 'vue'
-import Api from '@/api'
+import Vuex from "vuex";
+import Vue from "vue";
+import Api from "@/api";
+import createPersistedState from "vuex-persistedstate";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const store = new Vuex.Store({
-  state: {},
+  plugins: [createPersistedState()],
 
-  mutations: {},
+  state: {
+    currentUser: {}
+  },
+
+  mutations: {
+    setCurrentUser(state, currentUser) {
+      state.currentUser = currentUser;
+    }
+  },
 
   getters: {},
-  
+
   actions: {
-    login ({state, commit}, { username, password}) {
+    login({ state, commit, dispatch }, { username, password }) {
       // Here the app asks the server to verify credentials
       return new Promise((resolve, reject) => {
         Api.login({ username, password })
-          .then((resolve))
-          .catch(reject)
+          .then(currentUser => {
+            commit("setCurrentUser", currentUser);
+
+            //  then sing in with the sessionToken
+            dispatch("loginWithSessionToken", currentUser.sessionToken)
+              .then(res => {
+                if (res.data.success) {
+                  resolve(currentUser);
+                } else {
+                  reject({ message: "cant set session token" });
+                }
+              })
+              .catch(reject);
+          })
+          .catch(reject);
+      });
+    },
+
+    loginWithSessionToken({ state, commit }, sessionToken) {
+      return new Promise((resolve, reject) => {
+        Api.loginWithSessionToken({ sessionToken })
+          .then(res => {
+            resolve(res);
+          })
+          .catch(reject);
       });
     }
   }
-})
+});
 
-export default store
+export default store;
