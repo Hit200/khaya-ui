@@ -14,7 +14,7 @@ function useAuth(from, to, next) {
   if (store.state.currentUser) {
     next();
   } else {
-    next("/login");
+    next({ path: "/login", query: { return_to: from.fullPath } });
   }
 }
 
