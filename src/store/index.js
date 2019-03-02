@@ -9,12 +9,15 @@ const store = new Vuex.Store({
   plugins: [createPersistedState()],
 
   state: {
-    currentUser: {}
+    currentUser: null
   },
 
   mutations: {
     setCurrentUser(state, currentUser) {
       state.currentUser = currentUser;
+    },
+    logout(state) {
+      state.currentUser = null;
     }
   },
 
