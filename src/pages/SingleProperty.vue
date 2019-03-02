@@ -3,17 +3,17 @@
     <!-- Primary Navigation bar -->
     <AppNavigationBar/>
 
-    <div class="container mx-auto flex justify-between flex-wrap sm:mt-6 mb-10">
+    <div class="container mx-auto flex justify-between flex-wrap sm:mt-16 mb-10">
       <!-- Property descrition and details -->
-      <div class="w-full sm:w-1/2-almost bg-white sm:rouded p-8">
-        <h3 class="mb-4">47 Castens, Belvedere Harare</h3>
+      <div class="w-full sm:w-1/2-almost bg-white sm:rouded">
+        <h1 class="text-3xl mb-4">47 Castens, Belvedere Harare</h1>
 
         <!-- Popularity -->
         <span class="inline-flex items-center mb-4">
           <svg
             v-for="i in 4"
             :key="i"
-            fill="currentColor"
+            fill="orange"
             class="h-4"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
@@ -28,12 +28,12 @@
         <!-- Description -->
         <p
           class="mb-4"
-        >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum, voluptates maiores iusto ex assumenda aut perferendis consectetur doloremque deleniti earum in blanditiis quas sequi dolorem, asperiores laboriosam eius necessitatibus odit.</p>
+        >When you come and live at our place we provide you with all the things that make your stay comfortable. We live like a family and all the students who have stayed with us can testify of the love we share here.</p>
 
         <!-- Recommenders -->
-        <div class="flex items-center">
+        <div class="flex items-center mb-16">
           <div
-            class="inline-block flex-no-shrink h-10 w-10 bg-purple border-2 border-white rounded-full overflow-hidden"
+            class="inline-block flex-no-shrink h-12 w-12 bg-purple border-2 border-white rounded-full overflow-hidden shadow"
             :class="{'-ml-4': i > 1}"
             v-for="i in 4"
             :key="i"
@@ -45,79 +45,123 @@
             <strong>145</strong> people.
           </span>
         </div>
+
+        <!-- Location area for directions -->
+        <div class="container mx-auto p-8 sm:p-0">
+          <h3 class="text-xl mb-4">Location</h3>
+          <!-- Map area -->
+          <div class="bg-purple-lighter w-full h-48 rounded"></div>
+        </div>
       </div>
 
-      <!-- Property images -->
-      <div
-        class="relative w-full sm:w-1/2-almost h-64 sm:rounded bg-purple-lighter bg-size-cover"
-        style="background-image: url(/static/sample-house.jpeg)"
-      >
-        <div class="flex items-center justify-between px-4 h-24 w-full absolute pin-b -mb-12">
-          <div>
-            <button
-              class="inline-flex items-center bg-white rounded py-2 px-4 hover:bg-grey-lighter border mr-2 mb-2"
+      <div class="w-full sm:w-1/2-almost px-8">
+        <!-- Property images -->
+        <div
+          class="relative w-full h-64 sm:rounded bg-purple-lighter bg-size-cover mb-16"
+          style="background-image: url(/static/sample-house.jpeg)"
+        ></div>
+        <div class="w-full p-8 sm:p-0">
+          <h3 class="mb-4">Highlighted Amenities</h3>
+          <div class="flex items-center justify-between flex-wrap">
+            <div
+              v-for="i in ['Wifi', 'Gas Stove', 'TV & Entertainment', 'Spacious yard', 'Swimming Pool', 'Tennis Court']"
+              class="w-1/2 mb-4"
+              :key="i"
             >
               <svg
-                class="h-4 mr-2"
+                class="h-4 text-purple"
                 fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
               >
                 <path
-                  d="M10 3.22l-.61-.6a5.5 5.5 0 0 0-7.78 7.77L10 18.78l8.39-8.4a5.5 5.5 0 0 0-7.78-7.77l-.61.61z"
+                  d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM6.7 9.29L9 11.6l4.3-4.3 1.4 1.42L9 14.4l-3.7-3.7 1.4-1.42z"
                 ></path>
               </svg>
-              12k
-            </button>
-            <button
-              class="inline-flex items-center bg-white rounded py-2 px-4 hover:bg-grey-lighter border"
-            >
-              <svg
-                class="h-4 mr-2"
-                fill="current-color"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  d="M0 4c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm11 9l-3-3-6 6h16l-5-5-2 2zm4-4a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
-                ></path>
-              </svg>
-              See pictures
-            </button>
+              {{ i }}
+            </div>
           </div>
-          <div
-            class="w-24 h-24 flex-no-shrink flex items-center justify-center bg-grey border-4 border-grey-lightest rounded-full overflow-hidden"
-          >
-            <img class="w-full h-full" src="/static/sample-avatar.png" alt>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mx-auto">
+      <!-- The rooms -->
+      <div class="container mx-auto mt-6 p-8 sm:p-0">
+        <h3 class="text-xl mb-4">Rooms</h3>
+        <!-- 
+          -picture
+          - room number
+          - number of people
+          - genders allowed
+          - price
+        -->
+        <div class="flex flex-wrap -mx-8">
+          <div class="px-8 w-full sm:w-1/3" v-for="i in 3" :key="i">
+            <!-- The Property -->
+            <div class="w-full rounded-t mb-6">
+              <!-- The image for the Property -->
+              <div
+                class="single-home- w-full h-64 bg-purple relative"
+                :style="{'background-image': 'url(/static/architecture-building-driveway-186077.jpg)', 'background-size': 'cover'}"
+              >
+                <!-- Do a lil morre research on how to make the imimages scale properly - consider using object-fit -->
+                <div class="absolute pin-t flex justify-center -mt-4 w-full">
+                  <span
+                    class="py-2 px-4 rounded purple-blue-gradient text-white font-bold border-2 border-white"
+                  >$120/month</span>
+                </div>
+                <div class="image-filter text-white w-full absolute pin-b px-4 pb-2 pt-8">
+                  <h3>Room {{i}}</h3>
+                  <div class="mb-2">
+                    <span>Boys Only &middot; 3 people</span>
+                  </div>
+
+                  <div class="flex w-full items-center justify-between mb-2">
+                    <span class="inline-flex items-center">
+                      <svg
+                        class="fill-orange h-4 mr-2"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M10 3.22l-.61-.6a5.5 5.5 0 0 0-7.78 7.77L10 18.78l8.39-8.4a5.5 5.5 0 0 0-7.78-7.77l-.61.61z"
+                        ></path>
+                      </svg>
+                      128
+                    </span>
+                    
+                    <span class="inline-flex items-center">
+                      <svg
+                        v-for="i in 3"
+                        :key="i"
+                        fill="orange"
+                        class="h-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                        ></path>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <router-link
+              class="inline-block w-full no-underline text-purple text-center border border-purple hover:bg-purple hover:text-white py-4 px-6 rounded"
+              :to="`/${$route.params.id}/checkout`"
+            >Rent this room</router-link>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Reviews and Features -->
-    <div class="container mx-auto flex justify-between flex-wrap mt-6">
-      <div class="w-full sm:w-1/2-almost p-8 sm:p-0">
-        <h3 class="mb-4">Features</h3>
-        <div class="flex items-center justify-between flex-wrap">
-          <div
-            v-for="i in ['Wifi', 'Gas Stove', 'TV & Entertainment', 'Spacious yard', 'Swimming Pool', 'Tennis Court']"
-            class="w-1/2 mb-4"
-            :key="i"
-          >
-            <svg
-              class="h-4 text-purple"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <path
-                d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM6.7 9.29L9 11.6l4.3-4.3 1.4 1.42L9 14.4l-3.7-3.7 1.4-1.42z"
-              ></path>
-            </svg>
-            {{ i }}
-          </div>
-        </div>
-      </div>
+    <div class="container mx-auto flex justify-between flex-wrap mt-16">
       <!-- Reviews -->
       <div class="w-full sm:w-1/2-almost p-8 sm:p-0">
         <h3 class="mb-4">Reviews</h3>
@@ -139,70 +183,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- The rooms -->
-    <div class="container mx-auto mt-6 p-8 sm:p-0">
-      <h3 class="mb-4">Rooms</h3>
-      <!-- 
-  -picture
-  - room number
-  - number of people
-  - genders allowed
-  - price
-      -->
-      <div class="flex -mx-8">
-        <div class="px-8 w-1/3" v-for="i in 3">
-          <div class="bg-white rounded overflow-hidden h-full w-full">
-            <div class="h-32 bg-green"></div>
-            <div class="p-4">
-              <div class="flex items-center justify-between mb-4">
-                <p
-                  class="no-underline text-current-color hover:text-black text-lg mb-2 font-bold"
-                >Room {{i}}</p>
-                <span class="self-end mb-1 font-medium">$80/month</span>
-              </div>
-
-              <p class="mb-4">
-                <svg
-                  class="h-4 text-purple"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM6.7 9.29L9 11.6l4.3-4.3 1.4 1.42L9 14.4l-3.7-3.7 1.4-1.42z"
-                  ></path>
-                </svg> 3 people room
-              </p>
-              <p class="mb-4">
-                <svg
-                  class="h-4 text-purple"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM6.7 9.29L9 11.6l4.3-4.3 1.4 1.42L9 14.4l-3.7-3.7 1.4-1.42z"
-                  ></path>
-                </svg> Girls only allowed
-              </p>
-
-              <router-link
-                class="inline-block w-full no-underline text-purple text-center border border-purple hover:bg-purple hover:text-white py-4 px-6 rounded"
-                :to="`/${$route.params.id}/checkout`"
-              >Rent this room</router-link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Location area for directions -->
-    <div class="container mx-auto mt-6 p-8 sm:p-0">
-      <h3 class="mb-4">Location</h3>
-      <!-- Map area -->
-      <div class="bg-purple-lighter w-full h-64 rounded"></div>
     </div>
 
     <!-- The fixed footer -->
@@ -253,4 +233,24 @@ export default {
 </script>
 
 <style>
+.purple-blue-gradient {
+  background-image: linear-gradient(45deg, #46cefc, #203fca);
+}
+
+.single-home {
+  transition: all 0.2s;
+}
+.single-home:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.image-filter {
+  background-image: linear-gradient(
+    0deg,
+    #000000 0%,
+    #00000020 85%,
+    #0000000f 85%,
+    #0000000f 100%
+  );
+}
 </style>
