@@ -1,12 +1,12 @@
 <template>
-  <div class="border-b purple-blue-gradient text-white position-sticky pin-t">
+  <div class="border-b bg-low-opacity text-grey-darkest">
     <div class="flex items-center justify-between sm:flex-wrap container mx-auto px-4 sm:px-0">
-      <div class="w-full lg:w-auto py-2 inline-flex items-center">
+      <div class="w-full lg:w-auto py-4 inline-flex items-center">
         <router-link to="/" class="mr-4 flex-no-shrink">
           <img class="h-8" src="/static/logo-dark.svg">
         </router-link>
         <div
-          class="flex-1 flex items-center py-2 px-4 border border-grey-light bg-white shadow rounded lg:w-80 flex-1"
+          class="flex-1 flex items-center py-2 px-4 border border-grey-light bg-grey-lightest hover:bg-white hover:shadow rounded lg:w-80 flex-1"
         >
           <svg
             class="fill-grey-darkest h-4 mr-2"
@@ -28,17 +28,18 @@
       <nav class="hidden sm:block p-4 lg:p-0">
         <router-link
           to="/homes"
-          class="py-4 border-b-2 border-transparent hover:border-purple no-underline font-medium text-white px-2 lg:px-4"
+          class="py-6 border-b-2 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-2 lg:px-4"
           :class="{'border-purple': $route.name === 'PropertiesListing'}"
         >Explore houses</router-link>
         <router-link
           to="/new"
-          class="py-4 border-b-2 border-transparent hover:border-purple no-underline font-medium text-white px-2 lg:px-4"
+          class="py-6 border-b-2 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-2 lg:px-4"
           :class="{'border-purple': $route.name === 'CreateNewHouse'}"
         >Rent Out Your House</router-link>
         <a
+          v-if="!$store.state.currentUser"
           href="#"
-          class="py-4 border-b-2 border-transparent hover:border-purple no-underline font-medium text-white px-2 lg:px-4"
+          class="py-6 border-b-2 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-2 lg:px-4"
         >Create Account</a>
         <router-link
           v-if="!$store.state.currentUser"
@@ -77,5 +78,9 @@ export default {
 <style>
 .purple-blue-gradient {
   background-image: linear-gradient(45deg, #46cefc, #203fca);
+}
+
+.bg-low-opacity {
+  background: #ffffff4d;
 }
 </style>
