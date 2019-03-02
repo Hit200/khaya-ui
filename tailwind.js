@@ -795,7 +795,8 @@ module.exports = {
   */
 
   svgFill: {
-    current: "currentColor"
+    current: "currentColor",
+    ...colors
   },
 
   /*
