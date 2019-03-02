@@ -71,7 +71,7 @@ export default {
       const { username, password } = this.$data;
       this.login({ username, password })
         .then(() => {
-          this.$router.push("/homes");
+          this.$router.push(this.$route.query.return_to || "/homes");
         })
         .catch(err => {
           this.errorMessage = err.message;
