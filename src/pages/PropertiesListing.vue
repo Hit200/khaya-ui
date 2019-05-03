@@ -4,7 +4,7 @@
     <AppNavigationBar/>
 
     <!-- Secondary Navigation Bar, with filters -->
-    <div class="border-b p-4">
+    <!-- <div class="border-b p-4">
       <div class="flex items-center justify-between flex-col md:flex-row container mx-auto">
         <div class="py-2">
           <AppToggle v-model="isShowingMap" onText="Hide Map" offText="Show Map"/>
@@ -39,20 +39,40 @@
           >Number of occupants</button>
         </div>
       </div>
-    </div>
-
+    </div>-->
     <!-- The properties list -->
     <AppMap :show="isShowingMap"/>
 
-    <div class="container mx-auto mt-16">
+    <div class="container mx-auto mt-6">
       <ais-instant-search :searchClient="searchClient" index-name="Properties">
         <ais-search-box
           placeholder="15 Skymaster Belvedere"
+          class="mb-8"
           submit-title="search"
           reset-title="clear"
-          :autofocus="boolean"
-          :show-loading-indicator="boolean"
+          autofocus
+          show-loading-indicator
         ></ais-search-box>
+
+        <!-- filters -->
+        <!-- <ais-range-input attribute="minPrice" :min="70" :max="300" :precision="2">
+          <div slot-scope="{ currentRefinement, range, refine }">
+            <div class="px-4 pb-6 pt-4 my-4 border rounded">
+              <div class="w-2/3">
+                <span class="ml-2">Price range ($)</span>
+                <vue-slider
+                  from-placeholder="from"
+                  to-placeholder="to"
+                  :min="range.min"
+                  :max="range.max"
+                  :value="toValue(currentRefinement, range)"
+                  @input="refine({ min: $event[0], max: $event[1] })"
+                />
+              </div>
+            </div>
+          </div>
+        </ais-range-input>-->
+        <!-- Hits - Search results -->
         <ais-hits :transform-items="transformItems">
           <!-- Negativley offset the x margin to compensate for the x padding of children -->
           <div slot-scope="{ items }" class="-mx-6 flex flex-wrap">
@@ -63,21 +83,24 @@
               :key="i"
               class="w-full sm:w-1/2 md:w-1/3 p-2 px-6 mb-8"
             >
-              <router-link :to="`/${i}`" class="no-underline text-current-color w-full">
+              <router-link
+                :to="`/${property.objectId}`"
+                class="no-underline text-current-color w-full"
+              >
                 <div class="w-full rounded-t">
                   <!-- The image for the Property -->
                   <div
                     class="single-home w-full h-64 bg-purple relative"
-                    :style="{'background-image': `url(https://picsum.photos/1600/900/?random?k=${Math.random()})`, 'background-size': 'cover'}"
+                    :style="{'background-image': `url(${property.media ? property.media[0]: '/static/architecture-building-driveway-186077.jpg'})`, 'background-size': 'cover'}"
                   >
                     <!-- Do a lil morre research on how to make the imimages scale properly - consider using object-fit -->
                     <div class="absolute pin-t flex justify-center -mt-4 w-full">
                       <span
                         class="py-2 px-4 rounded purple-blue-gradient text-white font-bold border-2 border-white"
-                      >$80 - $120/month</span>
+                      >${{property.minPrice}} - ${{property.maxPrice}}/month</span>
                     </div>
                     <div class="image-filter text-white w-full absolute pin-b px-4 pb-2 pt-8">
-                      <h3>{{property.address}}</h3>
+                      <h3>{{property.location}}</h3>
                       <div class="mb-2">
                         <span>Shared &middot; 9 rooms</span>
                       </div>
@@ -122,7 +145,7 @@
               <div class="flex flex-wrap py-2">
                 <span
                   class="p-2 my-1 mr-2 bg-blue-lightest rounded"
-                  v-for="(feature, i) in property.features"
+                  v-for="(feature, i) in property.facilities"
                   :key="i"
                 >{{feature}}</span>
               </div>
@@ -141,6 +164,10 @@ import AppMap from "@/components/AppMap";
 
 import StarRating from "vue-star-rating";
 import algoliasearch from "algoliasearch/lite";
+import "instantsearch.css/themes/algolia.css";
+import "vue-slider-component/theme/antd.css";
+import VueSlider from "vue-slider-component";
+
 const searchClient = algoliasearch(
   "D97UPSIQ04",
   "4aab387d93c9f7129edfe6d2bda44ff0"
@@ -152,12 +179,14 @@ export default {
     AppNavigationBar,
     AppToggle,
     AppMap,
-    StarRating
+    StarRating,
+    VueSlider
   },
   data() {
     return {
       isShowingMap: false,
-      searchClient
+      searchClient,
+      value: 68
     };
   },
 
@@ -171,6 +200,13 @@ export default {
       let total = 0;
       Object.keys(ratingsObj).forEach(k => (total += ratingsObj[k]));
       return total;
+    },
+
+    toValue(value, range) {
+      return [
+        value.min !== null ? value.min : range.min,
+        value.max !== null ? value.max : range.max
+      ];
     }
   }
 };

@@ -3,35 +3,31 @@
     <!-- Primary Navigation bar -->
     <AppNavigationBar/>
 
-    <div class="container mx-auto flex justify-between flex-wrap sm:mt-16 mb-10">
+    <div
+      v-if="property.objectId"
+      class="container mx-auto flex justify-between flex-wrap sm:mt-16 mb-10"
+    >
       <!-- Property descrition and details -->
       <div class="w-full sm:w-1/2-almost bg-white sm:rouded">
-        <h1 class="text-3xl mb-4">47 Castens, Belvedere Harare</h1>
+        <h1 class="text-3xl mb-4">{{ property.location }}</h1>
 
         <!-- Popularity -->
         <span class="inline-flex items-center mb-4">
-          <svg
-            v-for="i in 4"
-            :key="i"
-            fill="orange"
-            class="h-4"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
-            ></path>
-          </svg>
-          <span class="ml-2">200 reviews</span>
+          <star-rating
+            :star-size="15"
+            v-model="property.overallRating"
+            text-class="hidden"
+            class="mr-2"
+          ></star-rating>
+
+          <span class="ml-2">{{ countRaters(property.ratings)}} reviews</span>
         </span>
 
         <!-- Description -->
-        <p
-          class="mb-4"
-        >When you come and live at our place we provide you with all the things that make your stay comfortable. We live like a family and all the students who have stayed with us can testify of the love we share here.</p>
+        <p class="mb-16">{{ property.description }}</p>
 
         <!-- Recommenders -->
-        <div class="flex items-center mb-16">
+        <!-- <div class="flex items-center mb-16">
           <div
             class="inline-block flex-no-shrink h-12 w-12 bg-purple border-2 border-white rounded-full overflow-hidden shadow"
             :class="{'-ml-4': i > 1}"
@@ -44,13 +40,15 @@
             Recommended by
             <strong>145</strong> people.
           </span>
-        </div>
-
+        </div>-->
         <!-- Location area for directions -->
         <div class="container mx-auto p-8 sm:p-0">
           <h3 class="text-xl mb-4">Location</h3>
           <!-- Map area -->
-          <div class="bg-purple-lighter w-full h-48 rounded"></div>
+          <div
+            class="bg-purple-lighter w-full h-48 rounded"
+            :style="{'background-image': `url(${generateGoogleMapUrl()})`}"
+          ></div>
         </div>
       </div>
 
@@ -63,11 +61,7 @@
         <div class="w-full p-8 sm:p-0">
           <h3 class="mb-4">Highlighted Amenities</h3>
           <div class="flex items-center justify-between flex-wrap">
-            <div
-              v-for="i in ['Wifi', 'Gas Stove', 'TV & Entertainment', 'Spacious yard', 'Swimming Pool', 'Tennis Court']"
-              class="w-1/2 mb-4"
-              :key="i"
-            >
+            <div v-for="i in property.facilities" class="w-1/2 mb-4" :key="i">
               <svg
                 class="h-4 text-purple"
                 fill="currentColor"
@@ -97,7 +91,7 @@
           - price
         -->
         <div class="flex flex-wrap -mx-8">
-          <div class="px-8 w-full sm:w-1/3" v-for="i in 3" :key="i">
+          <div class="px-8 w-full sm:w-1/3" v-for="(room, i) in property.room" :key="i">
             <!-- The Property -->
             <div class="w-full rounded-t mb-6">
               <!-- The image for the Property -->
@@ -109,15 +103,15 @@
                 <div class="absolute pin-t flex justify-center -mt-4 w-full">
                   <span
                     class="py-2 px-4 rounded purple-blue-gradient text-white font-bold border-2 border-white"
-                  >$120/month</span>
+                  >${{ room.price }}/month</span>
                 </div>
                 <div class="image-filter text-white w-full absolute pin-b px-4 pb-2 pt-8">
-                  <h3>Room {{i}}</h3>
+                  <h3>Room {{room.number}}</h3>
                   <div class="mb-2">
-                    <span>Boys Only &middot; 3 people</span>
+                    <span>Boys Only &middot; {{ room.capacity }} people</span>
                   </div>
 
-                  <div class="flex w-full items-center justify-between mb-2">
+                  <!-- <div class="flex w-full items-center justify-between mb-2">
                     <span class="inline-flex items-center">
                       <svg
                         class="fill-orange h-4 mr-2"
@@ -146,7 +140,7 @@
                         ></path>
                       </svg>
                     </span>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -223,11 +217,52 @@
 
 <script>
 import AppNavigationBar from "@/components/AppNavigationBar";
+import StarRating from "vue-star-rating";
+import axios from "axios";
 
 export default {
   name: "SingleProperty",
+
+  data: () => ({
+    property: {},
+    isFetchingProperty: false
+  }),
+
+  mounted() {
+    this.isFetchingProperty = true;
+    axios
+      .get(
+        `http://khaya-api.herokuapp.com/property/${
+          this.$route.params.id
+        }/details`
+      )
+      .then(res => {
+        console.log(res.data);
+        this.property = res.data.property;
+      })
+      .catch(error => {
+        console.log(JSON.stringify(error));
+      })
+      .finally(() => {
+        this.isFetchingProperty = true;
+      });
+  },
+
   components: {
-    AppNavigationBar
+    AppNavigationBar,
+    StarRating
+  },
+
+  methods: {
+    countRaters(ratingsObj) {
+      let total = 0;
+      Object.keys(ratingsObj).forEach(k => (total += ratingsObj[k]));
+      return total;
+    },
+
+    generateGoogleMapUrl() {
+      return `https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=AIzaSyBzPWkMJbQHRutX14O3b_dEG_TZr75V8Sc&&signature=nf6uUZV_lXBdx-lbjBrQYQ9FnQ8=`;
+    }
   }
 };
 </script>

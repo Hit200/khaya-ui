@@ -5,7 +5,7 @@
         <router-link to="/" class="mr-4 flex-no-shrink">
           <img class="h-8" src="/static/logo-dark.svg">
         </router-link>
-        <div
+        <!-- <div
           class="flex-1 flex items-center py-2 px-4 border border-grey-light bg-grey-lightest hover:bg-white hover:shadow rounded lg:w-80 flex-1"
         >
           <svg
@@ -22,7 +22,7 @@
             class="flex-1 outline-none h-full bg-transparent"
             placeholder="Search: eg Belvedere, Harare"
           >
-        </div>
+        </div>-->
       </div>
 
       <nav class="hidden sm:block p-4 lg:p-0">

@@ -13,10 +13,16 @@
   "dependencies": {
     "algoliasearch": "^3.32.0",
     "axios": "^0.18.0",
+    "firebase": "^5.8.5",
+    "instantsearch.css": "^7.1.1",
+    "places.js": "^1.16.1",
     "tailwindcss": "^0.6.6",
+    "uuid": "^3.3.2",
     "vue": "^2.5.2",
     "vue-instantsearch": "^2.0.0",
+    "vue-multiselect": "^2.1.4",
     "vue-router": "^3.0.1",
+    "vue-slider-component": "^3.0.5",
     "vue-star-rating": "^1.6.1",
     "vuex": "^3.0.1",
     "vuex-persistedstate": "^2.5.4"

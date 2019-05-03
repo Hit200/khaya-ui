@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 const baseURL =
-  process.env.NODE_ENV === "production"
+  process.env.NODE_ENV !== "production"
     ? "https://khaya-api.herokuapp.com"
     : "http://localhost:1337";
 const axios = Axios.create({ baseURL });
