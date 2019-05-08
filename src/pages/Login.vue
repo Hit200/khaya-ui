@@ -61,6 +61,11 @@ import { mapActions } from "vuex";
 export default {
   mounted() {
     this.username = this.$route.query.username;
+
+    if (this.$route.query.host_account_required == "1") {
+      this.errorMessage =
+        "You need to be logged in as a home owner in order to add a house";
+    }
   },
   data() {
     return {

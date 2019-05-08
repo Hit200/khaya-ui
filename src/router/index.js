@@ -19,6 +19,17 @@ function useAuth(from, to, next) {
   }
 }
 
+function useHomeOwnerAuth(from, to, next) {
+  if (store.state.currentUser && store.state.currentUser.role == "host") {
+    next();
+  } else {
+    next({
+      path: "/login",
+      query: { return_to: from.fullPath, host_account_required: 1 }
+    });
+  }
+}
+
 export default new Router({
   mode: "history",
   routes: [
@@ -47,7 +58,7 @@ export default new Router({
       path: "/new",
       name: "CreateNewHouse",
       component: CreateNewHouse,
-      beforeEnter: useAuth
+      beforeEnter: useHomeOwnerAuth
     },
     {
       path: "/:id",
