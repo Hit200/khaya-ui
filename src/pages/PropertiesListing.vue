@@ -44,7 +44,7 @@
     <AppMap :show="isShowingMap"/>
 
     <div class="container mx-auto mt-6">
-      <ais-instant-search :searchClient="searchClient" index-name="Properties">
+      <ais-instant-search :routing="routing" :searchClient="searchClient" index-name="Properties">
         <ais-search-box
           placeholder="15 Skymaster Belvedere"
           class="mb-8"
@@ -115,7 +115,7 @@
                           ></star-rating>
                           ({{ countRaters(property.ratings)}})
                         </span>
-                        
+
                         <span class="inline-flex items-center">
                           <svg
                             viewBox="0 0 496 496.01461"
@@ -168,6 +168,33 @@ import "instantsearch.css/themes/algolia.css";
 import "vue-slider-component/theme/antd.css";
 import VueSlider from "vue-slider-component";
 
+import { history as historyRouter } from "instantsearch.js/es/lib/routers";
+
+const routing = {
+  router: historyRouter(),
+  stateMapping: {
+    stateToRoute({ query, refinementList, page }) {
+      return {
+        query: query,
+        brands:
+          refinementList &&
+          refinementList.brand &&
+          refinementList.brand.join("~"),
+        page: page
+      };
+    },
+    routeToState({ query, brands, page }) {
+      return {
+        query: query,
+        refinementList: {
+          brand: brands && brands.split("~")
+        },
+        page: page
+      };
+    }
+  }
+};
+
 const searchClient = algoliasearch(
   "D97UPSIQ04",
   "4aab387d93c9f7129edfe6d2bda44ff0"
@@ -182,10 +209,12 @@ export default {
     StarRating,
     VueSlider
   },
+
   data() {
     return {
       isShowingMap: false,
       searchClient,
+      routing,
       value: 68
     };
   },

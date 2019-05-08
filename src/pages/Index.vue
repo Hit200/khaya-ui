@@ -15,10 +15,10 @@
               class="py-6 border-b-2 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-2 lg:px-4"
               :class="{'border-purple': $route.name === 'CreateNewhome'}"
             >Rent Out Your home</router-link>
-            <a
-              href="#"
+            <router-link
+              to="/register"
               class="py-6 border-b-2 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-2 lg:px-4"
-            >Create Account</a>
+            >Create Account</router-link>
             <router-link
               to="/login"
               class="no-underline font-medium text-white py-2 px-4 rounded bg-purple"
@@ -48,7 +48,16 @@
             d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"
           ></path>
         </svg>
-        <input type="text" placeholder="Search for accomodation" class="py-8 bg-transparent">
+
+        <form action="/homes" class="flex-1 w-4/5">
+          <input
+            type="search"
+            name="query"
+            placeholder="Search for accomodation"
+            class="py-8 bg-transparent outline-none flex-1 w-4/5"
+          >
+          <button class="h-1 w-1">&nbsp</button>
+        </form>
       </div>
     </div>
 
