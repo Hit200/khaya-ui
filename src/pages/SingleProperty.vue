@@ -52,7 +52,7 @@
         </div>
       </div>
 
-      <div class="w-full sm:w-1/2-almost px-8">
+      <div class="w-full sm:w-1/2-almost sm:pl-4">
         <!-- Property images -->
         <div
           class="relative w-full h-64 sm:rounded bg-purple-lighter bg-size-cover mb-16"
@@ -91,7 +91,7 @@
           - price
         -->
         <div class="flex flex-wrap -mx-8">
-          <div class="px-8 w-full sm:w-1/3" v-for="(room, i) in property.room" :key="i">
+          <div class="px-8 w-full sm:w-1/3 mb-10" v-for="(room, i) in property.room" :key="i">
             <!-- The Property -->
             <div class="w-full rounded-t mb-6">
               <!-- The image for the Property -->
@@ -154,8 +154,8 @@
       </div>
     </div>
 
-    <!-- Reviews and Features -->
-    <div class="container mx-auto flex justify-between flex-wrap mt-16">
+    <!-- Reviews and Features hide it for now -->
+    <div v-if="false" class="container mx-auto flex justify-between flex-wrap mt-16">
       <!-- Reviews -->
       <div class="w-full sm:w-1/2-almost p-8 sm:p-0">
         <h3 class="mb-4">Reviews</h3>
