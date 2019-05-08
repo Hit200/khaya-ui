@@ -56,6 +56,12 @@
           >
         </div>
 
+        <div class="flex items-center justify-between my-6">
+          <div class="bg-grey-light h-1 w-6 rounded-full"></div>
+          <span class="mx-2">Login Details</span>
+          <div class="bg-grey-light h-1 flex-1 rounded-full"></div>
+        </div>
+
         <div>
           <label class="mb-2 block bold">Username</label>
           <input
