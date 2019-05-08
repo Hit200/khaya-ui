@@ -64,6 +64,9 @@ const store = new Vuex.Store({
         Api.registerAccount({ username, password, role, fullname, email }).then(
           serverResponse => {
             console.log({ serverResponse });
+            if (serverResponse.data.error) {
+              return reject({ message: serverResponse.data.error });
+            }
             resolve({ username });
           }
         );
