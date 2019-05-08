@@ -54,6 +54,20 @@ const store = new Vuex.Store({
           })
           .catch(reject);
       });
+    },
+
+    registerAccount(
+      { state, commit, dispatch },
+      { username, password, role, fullname, email }
+    ) {
+      return new Promise((resolve, reject) => {
+        Api.registerAccount({ username, password, role, fullname, email }).then(
+          serverResponse => {
+            console.log({ serverResponse });
+            resolve({ username });
+          }
+        );
+      });
     }
   }
 });

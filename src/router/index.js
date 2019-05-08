@@ -4,6 +4,7 @@ import PropertiesListing from "@/pages/PropertiesListing";
 import Index from "@/pages/Index";
 import CreateNewHouse from "@/pages/CreateNewHouse";
 import Login from "@/pages/Login";
+import Register from "@/pages/Register";
 import SingleProperty from "@/pages/SingleProperty";
 import Checkout from "@/pages/Checkout";
 import store from "../store";
@@ -25,6 +26,11 @@ export default new Router({
       path: "/login",
       name: "Login",
       component: Login
+    },
+    {
+      path: "/register",
+      name: "Register",
+      component: Register
     },
     {
       path: "/",

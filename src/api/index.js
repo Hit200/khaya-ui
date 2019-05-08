@@ -1,9 +1,9 @@
 import Axios from "axios";
 
-const baseURL =
-  process.env.NODE_ENV !== "production"
-    ? "https://khaya-api.herokuapp.com"
-    : "http://localhost:1337";
+const baseURL = "https://khaya-api.herokuapp.com";
+// process.env.NODE_ENV !== "production"
+//   ? "https://khaya-api.herokuapp.com"
+//   : "http://localhost:1337";
 const axios = Axios.create({ baseURL });
 
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -35,6 +35,17 @@ export default {
         .post("/signIn", {
           sessionToken
         })
+        .then(resolve)
+        .catch(reject);
+    });
+  },
+
+  registerAccount({ username, password, role, fullname, email }) {
+    return new Promise((resolve, reject) => {
+      console.log("Creating a new user");
+      console.log({ username, password, role, fullname, email });
+      axios
+        .post("/signUp", { username, password, role, fullname, email })
         .then(resolve)
         .catch(reject);
     });

@@ -44,9 +44,14 @@
       </form>
     </div>
 
-    <div class="container-strip mx-auto bg-white border p-6 rounded">
+    <div
+      class="container-strip flex justify-between items-baseline mx-auto bg-white border p-6 rounded"
+    >
       New to Khaya?
-      <a href="#">Create an account</a>
+      <router-link
+        class="py-2 px-6 rounded bg-purple-lightest text-purple-dark font-bold no-underline hover:bg-purple-lighter"
+        to="/register"
+      >Create an account</router-link>
     </div>
   </div>
 </template>
@@ -54,10 +59,13 @@
 <script>
 import { mapActions } from "vuex";
 export default {
+  mounted() {
+    this.username = this.$route.query.username;
+  },
   data() {
     return {
-      username: "kudakwashe",
-      password: "1234567890",
+      username: "",
+      password: "",
       isLoading: false,
       errorMessage: ""
     };
