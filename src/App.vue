@@ -4,7 +4,9 @@
     <section
       class="container mt-10 mx-auto py-4 border-t flex flex-wrap items-center justify-between font-bold"
     >
-      <img src="/static/logo-dark.svg" class="h-10 mb-2 sm:mb-0" alt>
+      <router-link to="/">
+        <img src="/static/logo-dark.svg" class="h-10 mb-2 sm:mb-0" alt>
+      </router-link>
       &copy; {{ (new Date()).getFullYear() }} Khaya Plc
       <div>
         <svg
