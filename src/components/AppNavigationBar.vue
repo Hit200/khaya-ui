@@ -28,18 +28,19 @@
       <nav class="hidden sm:block p-4 lg:p-0">
         <router-link
           to="/homes"
-          class="py-6 border-b-2 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-2 lg:px-4"
+          class="py-6 border-b-2 mr-4 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-2 lg:px-4"
           :class="{'border-purple': $route.name === 'PropertiesListing'}"
         >Explore houses</router-link>
         <router-link
           to="/new"
-          class="py-6 border-b-2 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-2 lg:px-4"
+          v-if="$store.state.currentUser.role == 'host'"
+          class="py-6 border-b-2 mr-4 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-2 lg:px-4"
           :class="{'border-purple': $route.name === 'CreateNewHouse'}"
         >Rent Out Your House</router-link>
         <a
           v-if="!$store.state.currentUser"
           href="#"
-          class="py-6 border-b-2 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-2 lg:px-4"
+          class="py-6 border-b-2 mr-4 border-transparent hover:border-purple no-underline font-medium text-grey-darkest px-2 lg:px-4"
         >Create Account</a>
         <router-link
           v-if="!$store.state.currentUser"
