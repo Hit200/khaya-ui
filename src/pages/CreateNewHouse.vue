@@ -339,34 +339,36 @@ export default {
 
       const retrieveImageUrl = function(file) {
         return new Promise(function(resolve, reject) {
-          var storageRef = firebase
-            .storage()
-            .ref(`images/${uuidv4()}-.${file.name}`);
-
-          //Upload file
-          var task = storageRef.put(file);
-
-          //Update progress bar
-          task.on(
-            "state_changed",
-            function progress(snapshot) {
-              // var percentage =
-              //   (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-              // uploader.value = percentage;
-            },
-            function error(err) {
-              reject();
-            },
-            function complete() {
-              console.log("completed");
-              console.log();
-              var downloadURL = task.snapshot.downloadURL;
-              storageRef.getDownloadURL().then(url => {
-                console.log(url);
-                resolve(url);
-              });
-            }
-          );
+          // axios.post(
+          //   "https://khaya-api.herokuapp.com/newProperty",
+          //   newProperty
+          // );
+          //   var storageRef = firebase
+          //     .storage()
+          //     .ref(`images/${uuidv4()}-.${file.name}`);
+          //   //Upload file
+          //   var task = storageRef.put(file);
+          //   //Update progress bar
+          //   task.on(
+          //     "state_changed",
+          //     function progress(snapshot) {
+          //       // var percentage =
+          //       //   (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          //       // uploader.value = percentage;
+          //     },
+          //     function error(err) {
+          //       reject();
+          //     },
+          //     function complete() {
+          //       console.log("completed");
+          //       console.log();
+          //       var downloadURL = task.snapshot.downloadURL;
+          //       storageRef.getDownloadURL().then(url => {
+          //         console.log(url);
+          //         resolve(url);
+          //       });
+          //     }
+          //   );
         });
       };
 
@@ -374,11 +376,29 @@ export default {
         console.log({ files });
 
         let imageArray = [];
-        for (let i of files) {
-          console.log({ i });
-          imageArray.push(await retrieveImageUrl(i, i.name.split(".").pop()));
+        var bodyFormData = new FormData();
+        for (let file of files) {
+          bodyFormData.append("photos", file);
+          // imageArray.push(await retrieveImageUrl(i, i.name.split(".").pop()));
         }
-        return imageArray;
+
+        axios({
+          method: "post",
+          url: "https://khaya-api.herokuapp.com/uploadPhotos",
+          data: bodyFormData,
+          config: { headers: { "Content-Type": "multipart/form-data" } }
+        })
+          .then(function(theoResponse) {
+            //handle success
+            console.log({ theoResponse });
+            imageArray = theoResponse.data.url;
+            resolve(imageArray);
+          })
+          .catch(function(response) {
+            //handle error
+            console.log(response);
+            reject(response);
+          });
       };
 
       // for (var i = 0; i < files.length; i++) {
