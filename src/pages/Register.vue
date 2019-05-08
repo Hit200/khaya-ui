@@ -2,10 +2,6 @@
   <div>
     <h1 class="text-center mt-10 mb-4">Khaya App</h1>
 
-    <pre>
-      {{$data}}
-    </pre>
-
     <div class="container-strip mx-auto bg-white border p-6 rounded mb-4">
       <h3 class="mb-4">Create your Account</h3>
 
