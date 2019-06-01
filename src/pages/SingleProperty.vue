@@ -56,7 +56,7 @@
         <!-- Property images -->
         <div
           class="relative w-full h-64 sm:rounded bg-purple-lighter bg-size-cover mb-16"
-          style="background-image: url(/static/sample-house.jpeg)"
+          :style="{'background-image': `url(${property.media[0]})`}"
         ></div>
         <div class="w-full p-8 sm:p-0">
           <h3 class="mb-4">Highlighted Amenities</h3>
@@ -97,7 +97,7 @@
               <!-- The image for the Property -->
               <div
                 class="single-home- w-full h-64 bg-purple relative"
-                :style="{'background-image': 'url(/static/architecture-building-driveway-186077.jpg)', 'background-size': 'cover'}"
+                :style="{'background-image': 'url(/stlatic/architecture-building-driveway-186077.jpg)', 'background-size': 'cover'}"
               >
                 <!-- Do a lil morre research on how to make the imimages scale properly - consider using object-fit -->
                 <div class="absolute pin-t flex justify-center -mt-4 w-full">

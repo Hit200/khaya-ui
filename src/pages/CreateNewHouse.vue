@@ -382,23 +382,17 @@ export default {
           // imageArray.push(await retrieveImageUrl(i, i.name.split(".").pop()));
         }
 
-        axios({
+        const theoResponse = await axios({
           method: "post",
           url: "https://khaya-api.herokuapp.com/uploadPhotos",
           data: bodyFormData,
           config: { headers: { "Content-Type": "multipart/form-data" } }
-        })
-          .then(function(theoResponse) {
-            //handle success
-            console.log({ theoResponse });
-            imageArray = theoResponse.data.url;
-            resolve(imageArray);
-          })
-          .catch(function(response) {
-            //handle error
-            console.log(response);
-            reject(response);
-          });
+        });
+
+        //handle success
+        console.log({ theoResponse });
+        imageArray = theoResponse.data.url;
+        return imageArray;
       };
 
       // for (var i = 0; i < files.length; i++) {
@@ -438,4 +432,7 @@ export default {
 </script>
 
 <style>
+.ap-footer {
+  display: none;
+}
 </style>
