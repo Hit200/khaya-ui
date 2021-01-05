@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "algoliasearch": "^3.32.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "firebase": "^5.8.5",
     "instantsearch.css": "^7.1.1",
     "instantsearch.js": "^3.4.0",
